@@ -12,3 +12,11 @@ print(' '.join(map(str,B)))
 
 print(str(C[len(C)-1])+' '+' '.join(map(str,C[0:len(C)-1])))
 
+m=A.count(A[1])
+b=A[1]
+for elem in A:
+    if A.count(elem)>m:
+        m=A.count(elem)
+        b=elem
+print(b)
+
