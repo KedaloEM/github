@@ -5,7 +5,6 @@ min_freq=1000000
 koldif=0
 A=[]
 B=int1.readlines()
-s=len(B[0].split())
 for i in range(len(B)):
     A=A+list(map(int, B[i].split()))
 for i in range(101):
