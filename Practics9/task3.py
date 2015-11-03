@@ -12,7 +12,6 @@ for elem in C:
         E[elem]+=1
     else:
         E[elem]=1
-print(E)
 for i in range(len(C)):
     if (max==None) or (E[C[i]]>max):
         max=E[C[i]]
