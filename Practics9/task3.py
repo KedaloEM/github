@@ -9,9 +9,9 @@ max=None
 for elem in C:
     if elem in E:
         E[elem]+=1
+    else:
+        E[elem]=1
 print(E)
-#for i in range(len(C)):
- #   E[C[i]]=C.count(C[i])
 for i in range(len(C)):
     if (max==None) or (E[C[i]]>max):
         max=E[C[i]]
