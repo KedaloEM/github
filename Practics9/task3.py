@@ -1,6 +1,7 @@
 inputdata=open('inputdata.txt','r')
 B=inputdata.read()
-B=B.replace('.',' ').replace(',',' ').replace('!',' ').replace('?',' ')
+for symbol in ',.!?-\n':
+    B=B.replace(symbol, ' ')
 C=B.split()
 for i in range(len(C)):
     C[i]=C[i].lower()
