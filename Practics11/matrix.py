@@ -1,15 +1,13 @@
 __author__ = 'student'
 class Matrix:
     def __init__(self, m, n=None):
-       if type(m)!=list:
-            if type(m)!=int:
-                raise ValueError()
-        if type(n)!=int:
-            if n!=None:
-                raise ValueError()
-        if type(n)==int and n<1:
+        if (type(m)!=list) and (type(m)!=int):
             raise ValueError()
-        if type(n)==int and len(n)<1:
+        if (type(n)!=int) or (n!=None):
+            raise ValueError()
+        if (type(n)==int and n<1) or  (type(m)==int and m<1):
+            raise ValueError()
+        if (type(n)==int and len(n)<1) or (type(m)==int and len(m)<1):
             raise ValueError()
         if n==None:
             matr=m
@@ -39,10 +37,10 @@ class Matrix:
         return(Matrix(Summ))
     def __eq__(self, other):
         ravn=1
-        if self.m==other.m and (self.n==other.n):
-            for i in range(self.m):
-                for i in range(self.n):
-                    if self[i][j]!=other[i][j]:
+        if self.stroki==other.m and (self.stolbcy==other.n):
+            for i in range(self.stroki):
+                for j in range(self.stolbcy):
+                    if self.matr[i][j]!=other[i][j]:
                         ravn=0
                         break
         else:
@@ -50,26 +48,27 @@ class Matrix:
         return(ravn)
 
     def __set__(self, i,j, value):
-        if (i>self.m or j>self.n) or (i<1 or j<1) or (not isinstance(n,int) or not isinstance(m,int)):
+        if (i>self.stroki or j>self.stolbcy) or (i<1 or j<1) or (not isinstance(i,int) or not isinstance(j,int)):
             raise Exception()
         else:
             self.matr[i-1][j-1]=value
 
     def get_m(self):
-        return(self.m)
+        return(self.stroki)
     def get_n(self):
-        return(self.n)
+        return(self.stolbcy)
     def get_size(self):
-        razmer=[self.m,self.n]
+        razmer=[self.stroki,self.stolbcy]
         return(razmer)
 
     def __mul__(self, other):
-        if self.n!=other.m:
+        if self.stolbcy!=other.m:
             raise Exception
         else:
-            for i in range(self.m):
+            umnozh=[[0]*int(other.stolbcy) for i in range(self.stroki)]
+            for i in range(self.stroki):
                 k=0
-                for j in range(self.n):
+                for j in range(self.stolbcy):
                     umnozh[i][k]+=self.matr[i][j]*other.matr[j][k]
 
                     k+=1
