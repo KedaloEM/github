@@ -40,26 +40,21 @@ class ball():
         """
         #FIXME
         self.x += self.vx
-        self.y -= self.vy
+        self.y -= self.vy-5
 
     def hittest(self,ob):
-        """ Функция проверяет сталкивалкивается ли данный обьект с целью, описываемой в обьекте ob.
-
-        Args:
-            ob: Обьект, с которым проверяется столкновение.
-        Returns:
-            Возвращает True в случае столкновения мяча и цели. В противном случае возвращает False.
-        """
-        #FIXME
+        if ob.x==self.x and ob.y==self.y:
+            return True
+        else:
             return False
 
 class gun():
     """ Класс gun описывает пушку. """
-
-    self.f2_power = 10
-    self.f2_on = 0
-    self.an = 1
-    #self.id = canv.create_line(20,450,50,420,width=7) # FIXME: don't know how to set it...
+    def __init__(self):
+        self.f2_power = 10
+        self.f2_on = 0
+        self.an = 1
+        self.id = canv.create_line(20,450,50,420,width=7)
          
     def fire2_start(self,event):
         self.f2_on = 1
@@ -101,13 +96,13 @@ class gun():
             canv.itemconfig(self.id,fill = 'black')
         
 class target():
-    """ Класс target описывает цель. """ 
-    self.points = 0
-    self.live = 1
-    # FIXME: don't work!!! How to call this functions when object is created?
-    #self.id = canv.create_oval(0,0,0,0)
-    #self.id_points = canv.create_text(30,30,text = self.points,font = '28')
-    #self.new_target()
+    """ Класс target описывает цель. """
+    def __init__(self):
+        self.points = 0
+        self.live = 1
+        self.id = canv.create_oval(0,0,0,0)
+        self.id_points = canv.create_text(30,30,text = self.points,font = '28')
+        self.new_target()
          
     def new_target(self):
         """ Инициализация новой цели. """
