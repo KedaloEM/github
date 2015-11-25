@@ -37,7 +37,7 @@ class Matrix:
         return(Matrix(Summ))
     def __eq__(self, other):
         ravn=1
-        if self.stroki==other.m and (self.stolbcy==other.n):
+        if self.stroki==other.stroki and (self.stolbcy==other.stolbcy):
             for i in range(self.stroki):
                 for j in range(self.stolbcy):
                     if self.matr[i][j]!=other[i][j]:
