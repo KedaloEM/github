@@ -40,7 +40,6 @@ for row in mass:
         print(elem, end='    ')
     print()
 
-import numpy as np
 import matplotlib.pyplot as plt
 
 #график остатка (в целом)
